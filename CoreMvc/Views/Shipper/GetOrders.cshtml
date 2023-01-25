@@ -1,0 +1,49 @@
+﻿@model Shipper
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3>@Model.CompanyName  @Model.Phone</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+
+                    <th>Order Id</th>
+                    <th>Customer Id</th>
+                    <th>Order Date</th>
+                    <th>Ship Country</th>
+                    <th>Ship City</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr>
+                        <td><i  class="fa fa-plus"></i> <a asp-controller="Shipper" asp-action="GetOrderDetails" asp-route-id="@item.OrderId">@item.OrderId</a></td>
+                        <td>
+                            <a asp-controller="Shipper" asp-action="GetCustomerOrders" asp-route-id="@item.CustomerId">@item.CustomerId</a>
+
+
+                        </td>
+                        <td>@item.OrderDate</td>
+                        <td>@item.ShipCountry</td>
+                        <td>@item.ShipCity</td>
+                        @*<td>
+                            <a class="btn btn-primary" asp-action="Update" asp-controller="Shipper" asp-route-id="@item.ShipperId">Guncelle</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-controller="Shipper" asp-route-id="@item.ShipperId">Sil</a>
+                        </td>*@
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+
+</div>
+

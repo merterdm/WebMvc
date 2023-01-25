@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "fontawesome-iconpicker@3.2.0",
+      "destination": "wwwroot/fontawesome-iconpicker/"
+    },
+    {
+      "library": "bootstrap-icons@1.10.2",
+      "destination": "wwwroot/bootstrap-icons/"
+    },
+    {
+      "library": "font-awesome@6.2.1",
+      "destination": "wwwroot/font-awesome/"
+    }
+  ]
+}

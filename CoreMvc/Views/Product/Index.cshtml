@@ -1,0 +1,71 @@
+﻿@model ICollection<ProductIndexDto>
+
+<table id="myTable" class="table table-active">
+    <thead>
+        <tr>
+            <td>Product Id</td>
+            <td>Product Name</td>
+            <td>Category Name</td>
+            <td>Supplier Name</td>
+            <td>Unit Price</td>
+           
+            <td>Unit In Stock</td>
+            <td>UnitOnOrder</td>
+            <td>Discountinued</td>
+            <td>Guncelle</td>
+            <td>Sil</td>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.CategoryName</td>
+                <td>@item.SupplierName</td>
+                <td>@item.UnitPrice</td>
+              
+                <td>@item.UnitsInStock</td>
+                <td>@item.UnitsOnOrder</td>
+                <td>@item.Discontinued</td>
+                <td>
+                <a class="btn btn-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ProductId">Guncelle</a></td>
+                <td>
+                <a class="btn btn-danger" asp-action="Delete" asp-controller="Product" asp-route-id="@item.ProductId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts
+{@*
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js" charset="utf8"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#myTable').DataTable(
+                {
+                    ajax:{
+                        url: "https://localhost:7068/Product/GetProducts",
+                        type:"POST"
+                    },
+                    processing:true,
+                    serverSide:true,
+                    filter : true,
+                    columns:[
+                        {data:"productId",name:"ProductId"},
+                        { data: "productName", name: "ProductName" },
+                        { data: "unitPrice", name: "UnitPrice" },
+                        { data: "quantityPerUnit", name: "QuantityPerUnit" }
+                    ]
+                })
+        });
+    </script>
+*@
+}

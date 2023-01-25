@@ -1,0 +1,42 @@
+﻿<a class="btn btn-success" asp-action="Create" asp-controller="Shipper">Yeni Kayit Olustur</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td></td>
+            <th>Id</th>
+            <th>Firma Adi</th>
+            <th>Telefon</th>
+            <td></td>
+            <td></td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#detail" data-bs-toggle="collapse">
+                        <i class="fa fa-circle-plus"></i>
+                    </a>
+                </td>
+                <td id="shipperId">@item.ShipperId</td>
+                <td><a asp-controller="Shipper" asp-action="GetOrders" asp-route-id="@item.ShipperId">@item.CompanyName</a> </td>
+                <td>@item.Phone</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Update" asp-controller="Shipper" asp-route-id="@item.ShipperId">Guncelle</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Shipper" asp-route-id="@item.ShipperId">Sil</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div id="detail" class="collapse">
+                        AÇILIR MENU EKLENDI
+                    </div>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model ICollection<OrderReportDto>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Order Id</td>
+            <td>Siparisi Veren Firma</td>
+            <td>Siparisi alan Personel</td>
+            <td>Gonderilen Ulke</td>
+            <td>Gonderilen Sehir</td>
+            <td>Siparis Tarihi</td>
+            <td>Kargolama Tarihi</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-danger">
+                <td>@item.OrderId</td>
+                <td>@item.CompanyName</td>
+                <td>@item.EmployeeName</td>
+                @{
+                    if(item.Country=="France")
+                    {
+                        <td> <p class="text-danger">@item.Country </p></td>
+                    }
+                    else
+                    {
+                        <td class="text-succes">@item.Country</td>
+                    }
+
+            }
+                
+                <td>@item.City</td>
+                <td>@item.OrderDate</td>
+                <td>@item.ShippedDate</td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
